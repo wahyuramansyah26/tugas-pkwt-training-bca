@@ -11,8 +11,7 @@
 }
 
 .left .txt-left {
-    font-family: 'Airbnb Cereal App';
-    font-size: 30pt;
+    /* font-size: 3em; */
     margin-top: 50px;
     margin-left: 50px;
     color: #ffffff;
@@ -58,7 +57,6 @@ section .right{
 
 
 .right .txtlogin h3{
-    font-family: 'Airbnb Cereal App';
     font-size: 40px;
     color: #424242;
 }
@@ -170,5 +168,3 @@ section .right{
 .right .footer p span span {
     color: #D0CCCC;
 }
-
-
