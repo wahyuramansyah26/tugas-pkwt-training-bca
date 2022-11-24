@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4d53c46aa5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/home.css">
+    <title>Home</title>
+</head>
+
+<body>
+
+    <div class="contain">
+        <div class="sidebar">
+            <a class="push-menu" role="button">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+            <div class="header">
+                <div class="list-item">
+                    <a href="#">
+                        <img src="assets/45584233_524138308054985_5877540939093210292_n.svg" alt="profile"
+                            style="width: 100px;">
+                        <span class="profile-name">Niki Zefanya</span>
+                    </a>
+                    <a href="login.html">
+                        <button type="button" class="logout"><img src="assets/logout.svg" alt="logout">Logout</button>
+                    </a>
+                    
+                </div>
+
+            </div>
+
+            <div class="main">
+                <div class="list-item">
+                    <a href="#">
+                        <span class="description">Explore</span>
+                    </a>
+                </div>
+                <div class="list-item">
+                    <a href="#">
+                        <span class="description">History</span>
+                    </a>
+                </div>
+                <div class="list-item">
+                    <a href="#" onclick="openPopup()">
+                        <span class="description">Add Book*</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <header>
+                <div class="menu">
+                    <a href="#" class="dropdown-toggle list-menu" data-toggle="dropdown">All Categories</a>
+                    <a href="#" class="dropdown-toggle list-menu" data-toggle="dropdown">All Time</a>
+                </div>
+                <div class="search-bar">
+                    <form class="form-search">
+                        <div class="form-group">
+                            <span><i class="fa-solid fa-magnifying-glass fa-xl"></i></span>
+                            <input type="search" class="form-control" placeholder="Search Book">
+                        </div>
+                    </form>
+                </div>
+                <a href="index.html" class="logo">
+                    <img src="assets/bookshelf.svg" alt="bookshelf.svg" style="width: 50px;">
+                    <span class="brand-text">Library</span>
+                </a>
+            </header>
+
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide slide-1">
+                        <div class="card text-white" style="width: 250px;">
+                            <img class="card-img-top" src="assets/covernya.svg" alt="">
+                            <div class="card-img-overlay flex-end h-100 d-flex flex-column justify-content-end">
+                                <h5 class="card-title">Dilan 1990</h5>
+                                <p class="card-text"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide slide-2 active">
+                        <div class="card text-white" style="width: 400px;">
+                            <img class="card-img-top" src="assets/d96eff85-ae75-4f56-bdfc-dd7a055e7400.svg" alt="">
+                            <div class="card-img-overlay flex-end h-100 d-flex flex-column justify-content-end">
+                                <h5 class="card-title">Ubur-Ubur Lembur</h5>
+                                <p class="card-text">Raditya Dika</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide slide-3">
+                        <div class="card text-white" style="width: 115px;">
+                            <img class="card-img-top" src="assets/laskar.svg" alt="">
+                            <div class="card-img-overlay flex-end h-100 d-flex flex-column justify-content-end">
+                                <h5 class="card-title">Laskar Pelangi</h5>
+                                <p class="card-text">Andrea Hinata</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="arrow-slide">
+                        <div class="arrow left-arrow"><i class="fa-solid fa-chevron-left"></i></div>
+                        <div class="arrow right-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="list-book">
+                <h4>List Book</h4>
+                <div class="container-card">
+                    <div class="card" style="width: 15rem; cursor: pointer;">
+                        <img class="card-img-top" src="assets/covernya.svg" alt="dilan">
+                        <div class="card-body">
+                            <h5 class="card-title">Dilan 1990</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis
+                                lacus mi, sit amet vehicula nisl consequat id.</p>
+                        </div>
+                        <a href="detail.html" class="stretched-link"></a>
+                    </div>
+
+                    <div class="card" style="width: 15rem;">
+                        <img class="card-img-top" src="assets/977994_346fec47-0d83-4c64-ac50-b3e121e797d0_700_700.svg"
+                            alt="seni">
+                        <div class="card-body">
+                            <h5 class="card-title">Sebuah Seni Untuk ...</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis
+                                lacus mi, sit amet vehicula nisl consequat id.</p>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 15rem;">
+                        <img class="card-img-top" src="assets/3992f708-3a68-412d-b583-e19d6a02df80.svg"
+                            alt="react-native">
+                        <div class="card-body">
+                            <h5 class="card-title">React Native</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis
+                                lacus mi, sit amet vehicula nisl consequat id.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h5 class="popup-title">Add Data</h5>
+                <a href="#" onclick="closePopup()"><i class="fa-solid fa-xmark"></i></a>
+            </div>
+
+            <form class="form-book">
+                <div class="txt-input">
+                    <p>Url Image</p>
+                    <input type="text" class="form-control" placeholder="Url Image...">
+                </div>
+
+                <div class="txt-input">
+                    <p>Title</p>
+                    <input type="text" class="form-control" placeholder="Title...">
+                </div>
+
+                <div class="txt-input">
+                    <p>Description</p>
+                    <textarea class="form-control description" placeholder="Description...">
+                    </textarea>
+                </div>
+
+            </form>
+            <div class="popup-footer">
+                <button type="button" class="btn btn-warning text-white" onclick="closePopup()">Save</button>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <script>
+        let popup = document.getElementById("popup");
+        function openPopup() {
+            popup.classList.add("open-popup")
+        }
+        function closePopup() {
+            popup.classList.remove("open-popup")
+        }
+    </script>
+</body>
+
+</html>
