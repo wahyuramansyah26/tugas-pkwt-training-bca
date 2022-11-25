@@ -11,7 +11,7 @@
 }
 
 .left .txt-left {
-    /* font-size: 3em; */
+    font-size: 3em;
     margin-top: 50px;
     margin-left: 50px;
     color: #ffffff;
@@ -21,7 +21,7 @@
 section .left {
     width:530px;
     height: 100vh;
-    background-image: url(/assets/mollie-sivaram-_1gBVgy8gIU-unsplash.jpg) ; 
+    background-image: url(../assets/mollie-sivaram-_1gBVgy8gIU-unsplash.jpg) ; 
     background-size: contain;
     background-repeat: no-repeat;
     display: flex;
