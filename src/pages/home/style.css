@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Airbnb Cereal App', sans-serif;
+}
+
+.contain {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-content {
+    width: 80vw;
+}
+
+.main-content .list-book .container-card {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.main-content .list-book {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content .list-book h4 {
+    margin: 0 0 20px 70px;
+}
+

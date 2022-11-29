@@ -1,0 +1,64 @@
+.popup{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .popup-content{
+        position: absolute;
+        background: #fff;
+        border-radius: 20px;
+        width: 700px;
+        height: 500px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0 30px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        z-index: 7;
+        .popup-header {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+
+            a{
+                margin-top: -20px;
+            }
+        }
+
+        .form-book{
+            margin-top: 50px;
+            height: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .description{
+                height: 100px;
+            }
+            
+            .txt-input{
+                display: flex;
+                align-content: center;
+                p{
+                    width: 150px;
+                }
+            }
+
+            .form-control{
+                width: 500px;
+            }
+        }
+
+        .popup-footer{
+            width: 650px;
+            display: flex;
+            justify-content: end;
+        }
+    }
+}
