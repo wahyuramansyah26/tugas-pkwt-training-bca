@@ -2,7 +2,6 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import './navbar.scss'
-import bookshelf from '../../assets/bookshelf.svg'
 import { Link } from 'react-router-dom'
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -44,7 +43,7 @@ function navbar() {
                 </form>
             </div>
             <a href="index.html" className="logo">
-                <img src={bookshelf} alt="bookshelf.svg" />
+                <img src="assets/bookshelf.svg" alt="bookshelf.svg" />
                 <span className="brand-text">Library</span>
             </a>
         </header>

@@ -39,11 +39,15 @@
                 align-items: center;
 
                 .profile-img {
-                    width: 100%;
+                    width: 130px;
+                }
+
+                span {
+                    font-size: 20px;
                 }
             }
 
-            .logout {
+            .btn-logout {
                 border: 1px solid rgba(219, 219, 219, 1);
                 border-radius: 8px;
                 background-color: white;
@@ -51,8 +55,27 @@
                 padding: 5px 10px;
                 font-size: 16px;
                 cursor: pointer;
+                img {
+                    width: 25px;
+                }
             }
-            .logout:hover {
+            .btn-logout:hover {
+                background-color: rgba(219, 219, 219, 1);
+            }
+
+            .btn-login {
+                border: 1px solid rgba(219, 219, 219, 1);
+                border-radius: 8px;
+                background-color: white;
+                color: black;
+                padding: 5px 10px;
+                font-size: 16px;
+                cursor: pointer;
+                img {
+                    width: 25px;
+                }
+            }
+            .btn-login:hover {
                 background-color: rgba(219, 219, 219, 1);
             }
         }

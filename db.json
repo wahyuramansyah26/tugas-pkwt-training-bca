@@ -1,0 +1,78 @@
+{
+  "books": [
+    {
+      "id": 0,
+      "title": "Dilan 1990",
+      "image": "/assets/covernya.svg",
+      "image2": "/assets/cover-dilan.svg",
+      "image3": "/assets/book-dilan.svg",
+      "author": "Pidi Baiq",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac diam eget est rutrum ultrices. Donec laoreet enim a massa dapibus, cursus egestas dui pulvinar. Proin sit amet accumsan lectus. Nullam auctor auctor consequat. Donec semper magna erat, sed fringilla lacus pretium eget. Crasporttitor, nibh sit amet interdum bibendum, nibh velit accumsan tellus, vel vehicula tellus leovitae ipsum. Praesent sit amet libero sed orci ullamcorper efficitur. Pellentesque in euismod purus,sit amet ultrices tortor. Vestibulum ante dui, tempor at dui id, tincidunt euismod diam. Integerpellentesque massa nibh, ac eleifend odio malesuada sed. Phasellus orci sem, cursus nec orci ut,accumsan facilisis lacus. Nullam at elementum nibh, ac gravida felis. In sagittis rhoncus nisitempus dignissim. Sed fringilla consequat ante vitae lobortis. Cras posuere ligula vel enim suscipitmalesuada. Vivamus non nulla ut ante imperdiet euismod quis nec massa."
+    },
+    {
+      "id": 1,
+      "title": "Sebuah Seni Untuk Bersikap Bodo Amat",
+      "image": "/assets/977994_346fec47-0d83-4c64-ac50-b3e121e797d0_700_700.svg",
+      "image2": "/assets/cover-sebuahseni.svg",
+      "image3": "/assets/book-sebuahseni.svg",
+      "author": "Mark Manson",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac diam eget est rutrum ultrices. Donec laoreet enim a massa dapibus, cursus egestas dui pulvinar. Proin sit amet accumsan lectus. Nullam auctor auctor consequat. Donec semper magna erat, sed fringilla lacus pretium eget. Crasporttitor, nibh sit amet interdum bibendum, nibh velit accumsan tellus, vel vehicula tellus leovitae ipsum. Praesent sit amet libero sed orci ullamcorper efficitur. Pellentesque in euismod purus,sit amet ultrices tortor. Vestibulum ante dui, tempor at dui id, tincidunt euismod diam. Integerpellentesque massa nibh, ac eleifend odio malesuada sed. Phasellus orci sem, cursus nec orci ut,accumsan facilisis lacus. Nullam at elementum nibh, ac gravida felis. In sagittis rhoncus nisitempus dignissim. Sed fringilla consequat ante vitae lobortis. Cras posuere ligula vel enim suscipitmalesuada. Vivamus non nulla ut ante imperdiet euismod quis nec massa."
+    },
+    {
+      "id": 2,
+      "title": "React Native",
+      "image": "/assets/3992f708-3a68-412d-b583-e19d6a02df80.svg",
+      "image2": "/assets/cover-react.svg",
+      "image3": "/assets/book-react.svg",
+      "author": "Emilio Rodriguez",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac diam eget est rutrum ultrices. Donec laoreet enim a massa dapibus, cursus egestas dui pulvinar. Proin sit amet accumsan lectus. Nullam auctor auctor consequat. Donec semper magna erat, sed fringilla lacus pretium eget. Crasporttitor, nibh sit amet interdum bibendum, nibh velit accumsan tellus, vel vehicula tellus leovitae ipsum. Praesent sit amet libero sed orci ullamcorper efficitur. Pellentesque in euismod purus,sit amet ultrices tortor. Vestibulum ante dui, tempor at dui id, tincidunt euismod diam. Integerpellentesque massa nibh, ac eleifend odio malesuada sed. Phasellus orci sem, cursus nec orci ut,accumsan facilisis lacus. Nullam at elementum nibh, ac gravida felis. In sagittis rhoncus nisitempus dignissim. Sed fringilla consequat ante vitae lobortis. Cras posuere ligula vel enim suscipitmalesuada. Vivamus non nulla ut ante imperdiet euismod quis nec massa."
+    }
+  ],
+  "favorite-book": [
+    {
+      "id": 0,
+      "title": "Dilan 1990",
+      "image": "/assets/covernya.svg",
+      "author": "Pidi Baiq",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis lacus mi, sit amet vehicula nisl consequat id."
+    },
+    {
+      "id": 2,
+      "title": "React Native",
+      "image": "/assets/3992f708-3a68-412d-b583-e19d6a02df80.svg",
+      "author": "Emilio Rodriguez",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis lacus mi, sit amet vehicula nisl consequat id."
+    },
+    {
+      "id": 3,
+      "title": "Ubur-Ubur Lembur",
+      "image": "/assets/d96eff85-ae75-4f56-bdfc-dd7a055e7400.svg",
+      "author": "Raditya Dika",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis lacus mi, sit amet vehicula nisl consequat id."
+    },
+    {
+      "id": 4,
+      "title": "Laskar Pelangi",
+      "image": "/assets/laskar-300x220.svg",
+      "author": "Andrea Hirata",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis lacus mi, sit amet vehicula nisl consequat id."
+    }
+  ],
+  "users": [
+    {
+      "email": "wahyu@gmail.com",
+      "password": "$2a$10$6GvzRXdRyw/aUGVl9oAEOejkb6Ez3uiU7.Oie9K7F/6Wmt3E5OnFW",
+      "username": "wahyu",
+      "fullname": "Wahyu Ramansyah",
+      "id": 1
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$iurJv31z9k/kkREcOry7ruDUrLvT/AHp20CSbuKT/t3fjWgja6TJG",
+      "username": "admin",
+      "fullname": "Admin",
+      "role": "admin",
+      "id": 3
+    }
+  ]
+}

@@ -1,37 +1,51 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faBook } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
-import profile from '../../assets/foto-profile.svg'
-import logout from '../../assets/logout.svg'
+import { useSelector, useDispatch } from 'react-redux'
+import { logout } from '../../store/reducer/users'
+
 import PopupAdd from '../../components/PopUpAdd/popupadd'
 import './sidebar.scss'
 
-function sidebar() {
+function Sidebar(props) {
     const [isOpen, setIsOpen] = useState(true);
     const toggle = () => setIsOpen(!isOpen)
 
+
+    const dispatch = useDispatch()
+    const { isAuth, data } = useSelector((state) => state.users)
     const [buttonPopup, setButtonPopup] = useState(false)
 
     return (
-        <div style={{width: isOpen ? "20vw" : "5vw"}} className="sidebar">
-            <a id="menu-button" className="push-menu" role="button">
+        <div style={{ width: isOpen ? "20vw" : "5vw" }} className="sidebar">
+            <Link id="menu-button" className="push-menu" role="button">
                 <FontAwesomeIcon icon={faBars} onClick={toggle} />
-            </a>
-            <div style={{display: isOpen ? "block" : "none"}} className="header">
-                <div className="list-item">
-                    <a href="#">
-                        <img className="profile-img" src={profile} alt="profile" />
-                        <span className="profile-name">Niki Zefanya</span>
-                    </a>
-                    <Link to={'/login'}>
-                        <button type="button" className="logout"><img src={logout} alt="logout" />Logout</button>
-                    </Link>
-                </div>
-            </div>
+            </Link>
 
-            <div style={{display: isOpen ? "block" : "none"}} className="main">
+            {isAuth ? (
+                <div style={{ display: isOpen ? "block" : "none" }} className="header">
+                    <div className="list-item">
+                        <Link href="#">
+                            <img className="profile-img" src="assets/foto-profile.svg" alt="profile" />
+                            <span className="profile-name">{data.fullname}</span>
+                        </Link>
+                        <button type="button" className="btn-logout" onClick={() => dispatch(logout())}><img src="/assets/logout.svg" alt="logout" />Logout</button>
+                    </div>
+                </div>
+            ) : (
+                <div style={{ display: isOpen ? "block" : "none" }} className="header">
+                    <div className="list-item">
+                        <Link to={"/login"}>
+                            <button type="button" className="btn-login"><img src="/assets/login.svg" alt="logout" />  Login</button>
+                        </Link>
+                        
+                    </div>
+                </div>
+            )}
+
+
+            <div style={{ display: isOpen ? "block" : "none" }} className="main">
                 <div className="list-item">
                     <a href="#">
                         <span className="description">Explore</span>
@@ -43,13 +57,16 @@ function sidebar() {
                     </a>
                 </div>
                 <div className="list-item">
-                    <Link onClick={() => setButtonPopup(true)}>
-                        <span className="description">Add Book*</span>
-                    </Link>
+                    {isAuth && data.role === "admin"? (
+                        <Link onClick={() => setButtonPopup(true)}>
+                            <span className="description">Add Book*</span>
+                        </Link>
+                    ) : null}
+
                 </div>
             </div>
 
-            <PopupAdd trigger={buttonPopup} setTrigger={setButtonPopup}>
+            <PopupAdd trigger={buttonPopup} setTrigger={setButtonPopup} books={props.books} setBooks={props.setBooks}>
 
             </PopupAdd>
         </div>
@@ -58,4 +75,4 @@ function sidebar() {
 
 
 
-export default sidebar
+export default Sidebar

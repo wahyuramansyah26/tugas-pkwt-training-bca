@@ -29,7 +29,7 @@
 
         .form-book {
             margin-top: 50px;
-            height: 240px;
+            height: 400px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -50,6 +50,11 @@
             .form-control {
                 width: 500px;
             }
+            .popup-footer {
+                width: 650px;
+                display: flex;
+                justify-content: flex-end;
+            }
         }
     }
 
@@ -64,11 +69,7 @@
         }
     }
 
-    .popup-footer {
-        width: 650px;
-        display: flex;
-        justify-content: end;
-    }
+    
 }
 
 
