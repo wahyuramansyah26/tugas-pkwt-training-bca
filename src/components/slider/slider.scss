@@ -1,6 +1,11 @@
+.container-slider {
+    display: flex;
+    justify-content: center;
+}
 .slider {
     position: relative;
     height: 40vh;
+    width: 80vw;
     .owl-item.active.center .slider-card {
         transform: scale(1);
         opacity: 1;

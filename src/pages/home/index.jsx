@@ -10,6 +10,7 @@ import Slider from '../../components/slider/slider'
 
 function Home() {
     const [books, setBooks] = useState([])
+    const [isOpen, setIsOpen] = useState(true)
     const getBooks = async () => {
         try {
             const { data } = await axios.get('http://localhost:5000/books')
@@ -27,8 +28,8 @@ function Home() {
 
     return (
         <div className="contain">
-            <Sidebar books={books} setBooks={setBooks}/>
-            <div className="main-content">
+            <Sidebar books={books} setBooks={setBooks} trigger={isOpen} setTrigger={setIsOpen}/>
+            <div style={{ width: isOpen ? "80vw" : "95vw" }} className="main-content">
                 <Navbar />
                 <Slider />
                 <div className="list-book">

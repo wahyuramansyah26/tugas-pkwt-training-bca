@@ -56,7 +56,7 @@ function Details() {
           </div>
         </div>
         <div className="book">
-          <img src={book.image3} alt="" />
+          <img src={book.image} alt="" />
         </div>
       </div>
 

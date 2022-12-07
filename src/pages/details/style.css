@@ -7,6 +7,7 @@
 
 .header{
     height: 71.5vh;
+
 }
 
 .header .cover img{
@@ -44,7 +45,7 @@
 }
 
 .top .right-header .edit-delete {
-    color: white;
+    color: gray;
     font-size: 25px;
     text-decoration: none;
     margin-right: 10px;
@@ -52,8 +53,13 @@
 
 .book {
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: 50px;
+    bottom: 60px;
+}
+
+.book img{
+    width: 200px;
+    height: 280px;
 }
 
 article .aheader{

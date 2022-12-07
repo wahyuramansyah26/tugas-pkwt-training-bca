@@ -9,8 +9,7 @@ import PopupAdd from '../../components/PopUpAdd/popupadd'
 import './sidebar.scss'
 
 function Sidebar(props) {
-    const [isOpen, setIsOpen] = useState(true);
-    const toggle = () => setIsOpen(!isOpen)
+    const toggle = () => props.setTrigger(!props.trigger)
 
 
     const dispatch = useDispatch()
@@ -18,13 +17,13 @@ function Sidebar(props) {
     const [buttonPopup, setButtonPopup] = useState(false)
 
     return (
-        <div style={{ width: isOpen ? "20vw" : "5vw" }} className="sidebar">
+        <div style={{ width: props.trigger ? "20vw" : "5vw" }} className="sidebar">
             <Link id="menu-button" className="push-menu" role="button">
                 <FontAwesomeIcon icon={faBars} onClick={toggle} />
             </Link>
 
             {isAuth ? (
-                <div style={{ display: isOpen ? "block" : "none" }} className="header">
+                <div style={{ display: props.trigger ? "block" : "none" }} className="header">
                     <div className="list-item">
                         <Link href="#">
                             <img className="profile-img" src="assets/foto-profile.svg" alt="profile" />
@@ -34,7 +33,7 @@ function Sidebar(props) {
                     </div>
                 </div>
             ) : (
-                <div style={{ display: isOpen ? "block" : "none" }} className="header">
+                <div style={{ display: props.trigger ? "block" : "none" }} className="header">
                     <div className="list-item">
                         <Link to={"/login"}>
                             <button type="button" className="btn-login"><img src="/assets/login.svg" alt="logout" />  Login</button>
@@ -45,7 +44,7 @@ function Sidebar(props) {
             )}
 
 
-            <div style={{ display: isOpen ? "block" : "none" }} className="main">
+            <div style={{ display: props.trigger ? "block" : "none" }} className="main">
                 <div className="list-item">
                     <a href="#">
                         <span className="description">Explore</span>
