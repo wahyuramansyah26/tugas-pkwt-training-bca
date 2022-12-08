@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import PopupEdit from '../../components/PopUpEdit/popupedit'
 import PopupDelete from '../../components/PopUpDelete/popupdelete'
 import './style.css'
@@ -10,7 +11,9 @@ import axios from 'axios'
 function Details() {
   const { id } = useParams()
   const [book, setBook] = useState([])
-  const [data, setData] = useState([])
+  const [dataBook, setData] = useState([])
+
+  const { isAuth, data } = useSelector((state) => state.users)
 
   const getBook = async () => {
     try {
@@ -35,7 +38,7 @@ function Details() {
       setButtonPopup2(true)
     } else {
       setButtonPopup2(false)
-    }  
+    }
   }
 
   return (
@@ -50,10 +53,15 @@ function Details() {
               <img src="/assets/Arrow.svg" alt="arrow" />
             </Link>
           </div>
+
           <div className="right-header">
-            <Link onClick={() => setButtonPopup(true)} className="edit-delete">Edit</Link>
-            <Link onClick={handleDelete} className="edit-delete">Delete</Link>
+            {isAuth && data.role === "admin" ? (  
+              <><Link onClick={() => setButtonPopup(true)} className="edit-delete">Edit</Link><Link onClick={handleDelete} className="edit-delete">Delete</Link></>
+            ) : null}
+
           </div>
+
+
         </div>
         <div className="book">
           <img src={book.image} alt="" />
@@ -92,7 +100,7 @@ function Details() {
         </div>
       </div>
 
-      <PopupEdit trigger={buttonPopup} setTrigger={setButtonPopup} data={data} setData={setData} book={book} setBook={setBook} >
+      <PopupEdit trigger={buttonPopup} setTrigger={setButtonPopup} data={dataBook} setData={setData} book={book} setBook={setBook} >
 
       </PopupEdit>
 
