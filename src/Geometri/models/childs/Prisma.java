@@ -1,5 +1,6 @@
-package Geometri;
+package Geometri.models.childs;
 
+import Geometri.models.parents.Segitiga;
 import Geometri.service.BangunRuang;
 
 public class Prisma extends Segitiga implements BangunRuang{

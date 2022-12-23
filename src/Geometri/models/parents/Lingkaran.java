@@ -1,4 +1,4 @@
-package Geometri;
+package Geometri.models.parents;
 
 import Geometri.service.BangunDatar;
 

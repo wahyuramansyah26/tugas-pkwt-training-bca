@@ -2,6 +2,13 @@ package Geometri;
 
 import java.util.Scanner;
 
+import Geometri.models.childs.Bola;
+import Geometri.models.childs.Kubus;
+import Geometri.models.childs.Prisma;
+import Geometri.models.parents.Lingkaran;
+import Geometri.models.parents.Persegi;
+import Geometri.models.parents.Segitiga;
+
 public class MainApp {
     static Persegi persegi = new Persegi();
     static Segitiga segitiga = new Segitiga();
@@ -13,7 +20,7 @@ public class MainApp {
     static String opsi;
     static Scanner input = new Scanner(System.in);
 
-    public static void mainMenu() {
+    private static void mainMenu() {
         System.out.println("=== GEOMETRI ===");
         System.out.println("1. Bangun Datar");
         System.out.println("2. Bangun Ruang");
@@ -21,7 +28,7 @@ public class MainApp {
         opsi = input.nextLine();
     }
 
-    public static void menuDatar() {
+    private static void menuDatar() {
         System.out.println("=== Bangun Datar ===");
         System.out.println("1. Persegi");
         System.out.println("2. Segitiga");
@@ -30,7 +37,7 @@ public class MainApp {
         opsi = input.nextLine();
     }
 
-    public static void menuRuang() {
+    private static void menuRuang() {
         System.out.println("=== Bangun Ruang ===");
         System.out.println("1. Kubus");
         System.out.println("2. Prisma");
@@ -39,32 +46,32 @@ public class MainApp {
         opsi = input.nextLine();
     }
 
-    public static void tampilanPersegi() {
+    private static void tampilanPersegi() {
         persegi.gambarBangun();
         persegi.karakteristikBangun();
     }
 
-    public static void tampilanSegitiga() {
+    private static void tampilanSegitiga() {
         segitiga.gambarBangun();
         segitiga.karakteristikBangun();
     }
 
-    public static void tampilanLingkaran() {
+    private static void tampilanLingkaran() {
         lingkaran.gambarBangun();
         lingkaran.karakteristikBangun();
     }
 
-    public static void tampilanKubus() {
+    private static void tampilanKubus() {
         kubus.gambarBangun();
         kubus.karakteristikBangun();
     }
 
-    public static void tampilanPrisma() {
+    private static void tampilanPrisma() {
         prisma.gambarBangun();
         prisma.karakteristikBangun();
     }
 
-    public static void tampilanBola() {
+    private static void tampilanBola() {
         bola.gambarBangun();
         bola.karakteristikBangun();
     }

@@ -1,5 +1,6 @@
-package Geometri;
+package Geometri.models.childs;
 
+import Geometri.models.parents.Lingkaran;
 import Geometri.service.BangunRuang;
 
 public class Bola extends Lingkaran implements BangunRuang {

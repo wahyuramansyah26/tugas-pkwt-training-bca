@@ -1,5 +1,6 @@
-package Geometri;
+package Geometri.models.childs;
 
+import Geometri.models.parents.Persegi;
 import Geometri.service.BangunRuang;
 
 public class Kubus extends Persegi implements BangunRuang{
