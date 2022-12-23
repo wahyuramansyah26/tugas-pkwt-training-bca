@@ -2,6 +2,9 @@ package Biodata;
 
 import java.util.Scanner;
 
+import Biodata.models.Education;
+import Biodata.models.Person;
+
 public class MainApp {
     static Person person = new Person();;
     static Education education = new Education();;

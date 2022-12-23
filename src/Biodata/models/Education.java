@@ -1,4 +1,4 @@
-package Biodata;
+package Biodata.models;
 
 public class Education {
     private String sd;

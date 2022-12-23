@@ -1,4 +1,4 @@
-package Biodata;
+package Biodata.models;
 
 import java.time.Year;
 
