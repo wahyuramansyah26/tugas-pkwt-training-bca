@@ -16,7 +16,7 @@ public class BookController {
             System.out.println("Belum ada buku");
         }else {
             for (Book book : books) {
-                System.out.println("Buku " + iterasi);
+                System.out.println("ID Buku " + iterasi);
                 System.out.println("Title : " + book.getTitle());
                 System.out.println("Author : " + book.getAuthor());
                 System.out.println();

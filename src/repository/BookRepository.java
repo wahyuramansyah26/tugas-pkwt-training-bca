@@ -18,7 +18,12 @@ public class BookRepository implements DaoService<Book, Integer> {
     @Override
     public Book findById(Integer id) {
         // TODO Auto-generated method stub
-        return books.get(id - 1);
+        int size = books.size();
+        if (size <= 0 || size < id) {
+            return null;
+        } else {
+            return books.get(id - 1);
+        }
     }
 
     @Override
