@@ -4,6 +4,7 @@ import controller.OrderController;
 import controller.PaymentController;
 import repository.OrderRepository;
 import repository.PaymentRepository;
+import service.BaseService;
 import service.MenuService;
 
 public class App {
@@ -38,10 +39,12 @@ public class App {
             menuApp();
             switch (opsi) {
                 case "1":
+                    BaseService.clearScreen();
                     MenuService.showAllMenu();
                     break;
 
                 case "2":
+                    BaseService.clearScreen();
                     orderMenu();
                     switch (opsi) {
                         case "1":
