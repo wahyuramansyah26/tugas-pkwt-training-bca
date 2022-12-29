@@ -20,7 +20,12 @@ public class OrderServiceImpl implements OrderService {
         // TODO Auto-generated method stub
         Order orderSave = new Order();
         orderSave = BaseService.inputOrder(label);
-        orderRepository.save(orderSave);
+        if (Objects.nonNull(orderSave)) {
+            orderRepository.save(orderSave);
+        } else {
+            System.out.println("Menu tidak tersedia");
+        }
+        
     }
 
     @Override

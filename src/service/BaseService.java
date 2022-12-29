@@ -3,6 +3,7 @@ package service;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Objects;
 
 import models.Menu;
 import models.Order;
@@ -17,15 +18,34 @@ public class BaseService {
     public static Order inputOrder(String label){
         Menu menu = new Menu();
         if(label.equals("food")) {
-            menu = MenuService.getFoodMenu().get((QuestionService.questionInteger("Input nomor pesanan makanan: ")) - 1);
+            Integer noOrderFood = QuestionService.questionInteger("Input nomor pesanan makanan: ") - 1;
+            if( noOrderFood >= 0 && noOrderFood < MenuService.getFoodMenu().size()) {
+                menu = MenuService.getFoodMenu().get(noOrderFood);
+            } else {
+                menu = null;
+            }
+            
         }else if (label.equals("drink")) {
-            menu = MenuService.getDrinkMenu().get((QuestionService.questionInteger("Input nomor pesanan minuman: ")) - 1);
+            Integer noOrderDrink = QuestionService.questionInteger("Input nomor pesanan minuman: ") - 1;
+            if(noOrderDrink >= 0 && noOrderDrink < MenuService.getDrinkMenu().size()) {
+                menu = MenuService.getDrinkMenu().get(noOrderDrink);
+            } else {
+                menu = null;
+            }
         }else if (label.equals("paket")) {
-            menu = MenuService.getPaketMenu().get((QuestionService.questionInteger("Input nomor pesanan paket: ")) - 1);
+            Integer noOrderPaket = QuestionService.questionInteger("Input nomor pesanan paket: ") - 1;
+            if(noOrderPaket >= 0 && noOrderPaket < MenuService.getPaketMenu().size()) {
+                menu = MenuService.getPaketMenu().get(noOrderPaket);
+            } else {
+                menu = null;
+            }
         }
-        
-        Integer qty = QuestionService.questionInteger("Input banyak pesanan: ");
-        Order order = new Order(menu, qty);
+        Order order = null;
+        if(Objects.nonNull(menu)) {
+            Integer qty = QuestionService.questionInteger("Input banyak pesanan: ");
+            order = new Order(menu, qty);
+        } else {
+        }
         return order;
     }
 
