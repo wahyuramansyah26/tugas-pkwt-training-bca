@@ -12,23 +12,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import id.batch7.demospring.models.dto.request.BookRequest;
+import id.batch7.demospring.models.dto.request.CategoryRequest;
 import id.batch7.demospring.models.dto.response.ResponseData;
-import id.batch7.demospring.services.book.BookService;
+import id.batch7.demospring.services.category.CategoryService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/books")
-public class BookController {
+@RequestMapping("/categories")
+public class CategoryController {
     @Autowired
-    private BookService bookService;
+    private CategoryService categoryService;
 
     private ResponseData responseData;
 
     @PostMapping
-    public ResponseEntity<?> addBook(@RequestBody @Valid BookRequest request) {
+    public ResponseEntity<?> addCategory(@RequestBody @Valid CategoryRequest request) {
         try {
-            responseData = bookService.createBookService(request);
+            responseData = categoryService.createCategoryService(request);
             return ResponseEntity.status(responseData.getStatus()).body(responseData);
         } catch (Exception e) {
             // TODO: handle exception
@@ -39,9 +39,9 @@ public class BookController {
     }
 
     @GetMapping
-    public ResponseEntity<?> getBooks(@RequestParam(value = "status", defaultValue = "") Boolean status) {
+    public ResponseEntity<?> getCategories(@RequestParam(value = "status", defaultValue = "") Boolean status) {
         try {
-            responseData = bookService.readBookService(status);
+            responseData = categoryService.readCategoryService(status);
             return ResponseEntity.ok().body(responseData);
         } catch (Exception e) {
             // TODO: handle exception
@@ -51,22 +51,21 @@ public class BookController {
         }
     }
 
-    @GetMapping("/{idBook}")
-    public ResponseEntity<?> getBookById(@PathVariable("idBook") Long id) throws Exception{
-        responseData = bookService.readBookService(id);
+    @GetMapping("/{idCategory}")
+    public ResponseEntity<?> getCategoryById(@PathVariable("idCategory") Integer id) throws Exception {
+        responseData = categoryService.readCategoryService(id);
         return ResponseEntity.ok().body(responseData);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateBookById(@PathVariable Long id, @RequestBody @Valid BookRequest request) throws Exception{
-        responseData = bookService.updateBookService(id, request);
+    public ResponseEntity<?> updateCategory(@PathVariable Integer id, @RequestBody CategoryRequest request) throws Exception {
+        responseData = categoryService.updateCategoryService(id, request);
         return ResponseEntity.status(responseData.getStatus()).body(responseData);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteBook(@PathVariable Long id) throws Exception{
-        responseData = bookService.deleteBookService(id);
+    public ResponseEntity<?> deleteCategory(@PathVariable Integer id) throws Exception {
+        responseData = categoryService.deleteCategoryService(id);
         return ResponseEntity.ok().body(responseData);
     }
-
 }

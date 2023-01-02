@@ -15,5 +15,7 @@ public class BookRequest {
     private String penulis;
     @NotBlank(message = "Penerbit buku harus diisi!")
     private String penerbit;
+
+    private String categoryName;
     
 }

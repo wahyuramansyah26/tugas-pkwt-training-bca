@@ -4,7 +4,7 @@ import id.batch7.demospring.models.dto.request.BookRequest;
 import id.batch7.demospring.models.dto.response.ResponseData;
 
 public interface BookService {
-    ResponseData createBookService(BookRequest request);
+    ResponseData createBookService(BookRequest request) throws Exception;
 
     // Read all books
     ResponseData readBookService(Boolean status);

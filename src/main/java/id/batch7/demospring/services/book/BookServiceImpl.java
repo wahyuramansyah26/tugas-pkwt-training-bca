@@ -1,6 +1,7 @@
 package id.batch7.demospring.services.book;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +9,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import id.batch7.demospring.exceptions.custom.CustomNotFoundException;
 import id.batch7.demospring.models.dto.request.BookRequest;
 import id.batch7.demospring.models.dto.response.ResponseData;
 import id.batch7.demospring.models.entity.Book;
+import id.batch7.demospring.models.entity.Category;
 import id.batch7.demospring.repositories.BookRepository;
+import id.batch7.demospring.repositories.CategoryRepository;
 import id.batch7.demospring.validators.BookValidator;
 
 @Service
@@ -21,6 +25,9 @@ public class BookServiceImpl implements BookService {
     private BookRepository bookRepository;
 
     @Autowired
+    private CategoryRepository categoryRepository;
+
+    @Autowired
     private BookValidator bookValidator;
 
     private Book book;
@@ -28,7 +35,7 @@ public class BookServiceImpl implements BookService {
     private List<Book> books;
 
     @Override
-    public ResponseData createBookService(BookRequest request) {
+    public ResponseData createBookService(BookRequest request) throws Exception {
         // TODO Auto-generated method stub
 
         book = new Book();
@@ -36,6 +43,13 @@ public class BookServiceImpl implements BookService {
         book.setTitle(request.getJudulBuku());
         book.setAuthor(request.getPenulis());
         book.setPublisher(request.getPenerbit());
+
+        Category category = categoryRepository.findByName(request.getCategoryName());
+        if(Objects.isNull(category)) {
+            throw new CustomNotFoundException("Category is not found");
+        }
+
+        book.setCategory(category);
 
         bookRepository.save(book);
 
@@ -77,6 +91,12 @@ public class BookServiceImpl implements BookService {
         book.setAuthor(request.getPenulis());
         book.setPublisher(request.getPenerbit());
         book.setTitle(request.getJudulBuku());
+
+        Category category = categoryRepository.findByName(request.getCategoryName());
+        if (Objects.isNull(category)) {
+            throw new CustomNotFoundException("Category is not found!");
+        }
+        book.setCategory(category);
 
         bookRepository.save(book);
 
