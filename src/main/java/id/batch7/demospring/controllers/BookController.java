@@ -26,16 +26,10 @@ public class BookController {
     private ResponseData responseData;
 
     @PostMapping
-    public ResponseEntity<?> addBook(@RequestBody @Valid BookRequest request) {
-        try {
-            responseData = bookService.createBookService(request);
-            return ResponseEntity.status(responseData.getStatus()).body(responseData);
-        } catch (Exception e) {
-            // TODO: handle exception
-            e.printStackTrace();
-            responseData = new ResponseData(500, e.getMessage(), null);
-            return ResponseEntity.status(responseData.getStatus()).body(responseData);
-        }
+    public ResponseEntity<?> addBook(@RequestBody @Valid BookRequest request) throws Exception{
+        responseData = bookService.createBookService(request);
+        return ResponseEntity.status(responseData.getStatus()).body(responseData);
+        
     }
 
     @GetMapping

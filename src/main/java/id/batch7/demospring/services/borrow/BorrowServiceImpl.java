@@ -1,5 +1,7 @@
 package id.batch7.demospring.services.borrow;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +43,7 @@ public class BorrowServiceImpl implements BorrowService {
     private UserValidator userValidator;
 
     private Borrow borrow;
+    private List<Borrow> borrows;
     private ResponseData responseData;
 
     @Override
@@ -58,6 +61,7 @@ public class BorrowServiceImpl implements BorrowService {
         if (bookIsBorrow.isEmpty()) {
             borrow.setUser(user);
             borrow.setBook(book);
+            borrow.setCreatedAt(LocalDateTime.now());
             borrowRepository.save(borrow);
             responseData = new ResponseData(HttpStatus.CREATED.value(), "success", borrow);
         } else {
@@ -78,8 +82,22 @@ public class BorrowServiceImpl implements BorrowService {
             responseData = new ResponseData(500, "book is already returned", null);
         } else {
             borrow.setIsReturned(true);
+            borrow.setReturnedAt(LocalDateTime.now());
             borrowRepository.save(borrow);
             responseData = new ResponseData(200, "success returned book", borrow);
+        }
+        
+        return responseData;
+    }
+
+    @Override
+    public ResponseData getBorrowByUserIdService(Integer userId) throws Exception {
+        // TODO Auto-generated method stub
+        borrows = borrowRepository.findByUserId(userId);
+        if (borrows.isEmpty()) {
+            responseData = new ResponseData(404, "There is no loan data yet", null);
+        } else {
+            responseData = new ResponseData(200, "success", borrows);
         }
         
         return responseData;
