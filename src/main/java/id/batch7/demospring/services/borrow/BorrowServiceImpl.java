@@ -16,6 +16,7 @@ import id.batch7.demospring.repositories.BookRepository;
 import id.batch7.demospring.repositories.BorrowRepository;
 import id.batch7.demospring.repositories.UserRepository;
 import id.batch7.demospring.validators.BookValidator;
+import id.batch7.demospring.validators.BorrowValidator;
 import id.batch7.demospring.validators.UserValidator;
 
 @Service
@@ -31,6 +32,9 @@ public class BorrowServiceImpl implements BorrowService {
     private BookRepository bookRepository;
 
     @Autowired
+    private BorrowValidator borrowValidator;
+
+    @Autowired
     private BookValidator bookValidator;
 
     @Autowired
@@ -38,7 +42,6 @@ public class BorrowServiceImpl implements BorrowService {
 
     private Borrow borrow;
     private ResponseData responseData;
-
 
     @Override
     public ResponseData createBorrowService(BorrowRequest borrowRequest) throws Exception {
@@ -48,7 +51,7 @@ public class BorrowServiceImpl implements BorrowService {
         userValidator.validateUserNotFound(userFind);
         User user = userFind.get();
 
-        Optional<Book> bookFind = bookRepository.findById(borrowRequest.getBookId());
+        Optional<Book> bookFind = bookRepository.findByIdAndIsDeleted(borrowRequest.getBookId(), false);
         bookValidator.validateBookNotFound(bookFind);
         Book book = bookFind.get();
         Optional<Borrow> bookIsBorrow = borrowRepository.findByBookIdAndIsReturned(borrowRequest.getBookId(), false);
@@ -69,11 +72,16 @@ public class BorrowServiceImpl implements BorrowService {
     public ResponseData createReturnService(Long id) throws Exception {
         // TODO Auto-generated method stub
         Optional<Borrow> borrowFind = borrowRepository.findById(id); 
+        borrowValidator.validateBorrowNotFound(borrowFind);
         borrow = borrowFind.get();
-
-        borrow.setIsReturned(true);
-        borrowRepository.save(borrow);
-        responseData = new ResponseData(200, "success updated", borrow);
+        if (borrow.getIsReturned()) {
+            responseData = new ResponseData(500, "book is already returned", null);
+        } else {
+            borrow.setIsReturned(true);
+            borrowRepository.save(borrow);
+            responseData = new ResponseData(200, "success returned book", borrow);
+        }
+        
         return responseData;
     }
     
