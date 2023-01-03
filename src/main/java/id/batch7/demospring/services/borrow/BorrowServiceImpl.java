@@ -1,6 +1,5 @@
 package id.batch7.demospring.services.borrow;
 
-import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import id.batch7.demospring.exceptions.custom.CustomNotFoundException;
 import id.batch7.demospring.models.dto.request.BorrowRequest;
 import id.batch7.demospring.models.dto.response.ResponseData;
 import id.batch7.demospring.models.entity.Book;
@@ -17,6 +15,8 @@ import id.batch7.demospring.models.entity.User;
 import id.batch7.demospring.repositories.BookRepository;
 import id.batch7.demospring.repositories.BorrowRepository;
 import id.batch7.demospring.repositories.UserRepository;
+import id.batch7.demospring.validators.BookValidator;
+import id.batch7.demospring.validators.UserValidator;
 
 @Service
 @Transactional
@@ -30,6 +30,12 @@ public class BorrowServiceImpl implements BorrowService {
     @Autowired
     private BookRepository bookRepository;
 
+    @Autowired
+    private BookValidator bookValidator;
+
+    @Autowired
+    private UserValidator userValidator;
+
     private Borrow borrow;
     private ResponseData responseData;
 
@@ -39,22 +45,22 @@ public class BorrowServiceImpl implements BorrowService {
         // TODO Auto-generated method stub
         borrow = new Borrow();
         Optional<User> userFind = userRepository.findById(borrowRequest.getUserId());
+        userValidator.validateUserNotFound(userFind);
         User user = userFind.get();
-        if (Objects.isNull(user)) {
-            throw new CustomNotFoundException("User is not found!");
-        }
-        borrow.setUser(user);
 
         Optional<Book> bookFind = bookRepository.findById(borrowRequest.getBookId());
+        bookValidator.validateBookNotFound(bookFind);
         Book book = bookFind.get();
-        if (Objects.isNull(book)) {
-            throw new CustomNotFoundException("Book is not found!");
+        Optional<Borrow> bookIsBorrow = borrowRepository.findByBookIdAndIsReturned(borrowRequest.getBookId(), false);
+        if (bookIsBorrow.isEmpty()) {
+            borrow.setUser(user);
+            borrow.setBook(book);
+            borrowRepository.save(borrow);
+            responseData = new ResponseData(HttpStatus.CREATED.value(), "success", borrow);
+        } else {
+            responseData = new ResponseData(HttpStatus.BAD_REQUEST.value(), "failed, book is already borrowed", null);
         }
-
         
-        borrow.setBook(book);
-        borrowRepository.save(borrow);
-        responseData = new ResponseData(HttpStatus.CREATED.value(), "success", borrow);
 
         return responseData;
     }
@@ -62,11 +68,8 @@ public class BorrowServiceImpl implements BorrowService {
     @Override
     public ResponseData createReturnService(Long id) throws Exception {
         // TODO Auto-generated method stub
-        Optional<Borrow> borrowFind = borrowRepository.findById(id);
-        Borrow borrow = borrowFind.get();
-        if (Objects.isNull(borrow)) {
-            throw new CustomNotFoundException("Borrow is not found!");
-        }
+        Optional<Borrow> borrowFind = borrowRepository.findById(id); 
+        borrow = borrowFind.get();
 
         borrow.setIsReturned(true);
         borrowRepository.save(borrow);
